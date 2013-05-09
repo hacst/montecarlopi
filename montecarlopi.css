@@ -8,6 +8,14 @@
     top: 0px;
 }
 
+#stats {
+    background-color: rgba(224, 224, 224, 0.80);
+    width: 180px;
+    border-radius: 8px;
+    border: solid 1px gray;
+    padding: 5px
+}
+
 #throws {
     z-index: -2;
 }

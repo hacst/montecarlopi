@@ -27,11 +27,17 @@
 
     var throwCtx = document.getElementById('throws').getContext('2d');
 
-    px = throwCtx.createImageData(1, 1);
-    px.data[0] = 255; // R
-    px.data[1] = 0; // G
-    px.data[2] = 0; // B
-    px.data[3] = 255; // A
+    redPx = throwCtx.createImageData(1, 1);
+    redPx.data[0] = 255; // R
+    redPx.data[1] = 0; // G
+    redPx.data[2] = 0; // B
+    redPx.data[3] = 255; // A
+
+    greenPx = throwCtx.createImageData(1, 1);
+    greenPx.data[0] = 0; // R
+    greenPx.data[1] = 255; // G
+    greenPx.data[2] = 0; // B
+    greenPx.data[3] = 255; // A
 
     function loop() {
         for (var i = 0; i < 50; ++i) {
@@ -48,9 +54,11 @@
         if (Math.pow(x, 2) + Math.pow(y, 2) <= 1) {
             ++hits;
             hitsEl.textContent = hits
+            var coloredPx = greenPx;
         } else {
             ++misses;
             missesEl.textContent = misses;
+            var coloredPx = redPx;
         }
         ++total;
 
@@ -61,7 +69,7 @@
         var imgX = (x + 1) / 2 * width;
         var imgY = (y + 1) / 2 * height;
 
-        throwCtx.putImageData(px, imgX, imgY);
+        throwCtx.putImageData(coloredPx, imgX, imgY);
     };
 
     setTimeout(loop, 0);
