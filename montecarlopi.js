@@ -9,7 +9,7 @@
     var missesEl = document.getElementById('misses');
     var piEl = document.getElementById('pi');
 
-    var canvas = document.getElementById('canvas');
+    var canvas = document.getElementById('circle');
     ctx = canvas.getContext('2d');
 
     var width = canvas.width;
@@ -25,7 +25,9 @@
     ctx.rect(0, 0, width, height);
     ctx.stroke();
 
-    px = ctx.createImageData(1, 1);
+    var throwCtx = document.getElementById('throws').getContext('2d');
+
+    px = throwCtx.createImageData(1, 1);
     px.data[0] = 255; // R
     px.data[1] = 0; // G
     px.data[2] = 0; // B
@@ -59,7 +61,7 @@
         var imgX = (x + 1) / 2 * width;
         var imgY = (y + 1) / 2 * height;
 
-        ctx.putImageData(px, imgX, imgY);
+        throwCtx.putImageData(px, imgX, imgY);
     };
 
     setTimeout(loop, 0);

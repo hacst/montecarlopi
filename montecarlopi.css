@@ -1,3 +1,17 @@
 ﻿body
 {
 }
+
+.overlap {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+#throws {
+    z-index: -2;
+}
+
+#circle {
+    z-index: -1;
+}
